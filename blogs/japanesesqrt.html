@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Blogs| Japanese square root</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/bulma.css">
+	<link rel="stylesheet" href="../hl/styles/atom-one-dark.css">
+  </head>
+  
+  
+<body style="background:black">
+ 
+ 
+<!-- NAVBAR -->
+<nav class="navbar is-black" role="navigation" aria-label="main navigation">
+	<div class="navbar-brand">
+		<a class="navbar-item" href="../mainpage.html"><img src="../img/mylogo.png" width="32" height="32"><strong>Ghost_dsb</strong></a>
+	
+		<button class="button navbar-burger">
+		<span></span>
+		<span></span>
+		<span></span>
+		</button>
+	</div>
+	
+	<div class="navbar-menu">
+		<div class="navbar-start">
+		<a class="navbar-item " href="../blogindex.html"><strong>Blogs</strong></a>
+		<a class="navbar-item " href="../games.html"><strong>Games</strong></a>
+		<a class="navbar-item" href="../euler.html"><strong>Project Euler</strong></a>
+		</div>
+		
+		<div class="navbar-end">
+		<a class="navbar-item " href="http://www.github.com/ghostdsb"><span class="fa fa-github"></span>&nbsp;Github</a>
+		</div>	
+	</div>
+</nav>
+
+  
+  <!-- MAIN ARTICLE -->
+<div class="columns">
+<div class="colums is-12">.<br/><br/><br/><br/><br/></div>
+</div>
+<section class="articles">
+        <div class="column is-8 is-offset-2">
+<div class="card article">
+            <div class="card-content">
+              <div class="media">
+                <div class="media-content has-text-centered">
+                  <p class="title article-title">Japanese Square Root Technique</p>
+                  <p class="subtitle is-6 article-subtitle">The strangest method for finding square roots</p>
+                </div>
+              </div>
+
+            <div class="content article-body">
+          <!-- Content -->
+
+		  <h2>Disadvantages:</h2>
+			<p>
+			<ul>
+			<li>It converges pretty slowly than Newton-Raphson method.</li>
+			</ul>
+			</p>
+			<h2>Advantages:</h2>
+			<p>
+			<ul>
+			<li>It only uses addition and substraction!</li>
+			<li>Can be used to find upto 500 digits(fast) or more(slow) after decimal places.</li>
+			</ul>
+			</p>
+			<h2>Algorithm for finding square root of 'n':</h2>
+			<p>
+			<h3>Initiation</h3>
+			<p>Let 'a' = 5n and 'b' = n</p>
+			</p>
+			<p>
+			<h3>Repetition</h3>
+			<p>R1: If a ≥ b; replace 'a' with a-b and 'b' with b+10</p>
+			<p>R2: If a < b; replace 'a' with 100*a and add a zero before the unit's digit of 'b'</p>
+			</p>
+			<p>
+			<h2>Observation</h2>
+			<p>Value of 'b' converges to the square root of 'n' (without decimal point)</p>
+			</p>
+			<p>
+			<h2>Example</h2>
+			<p>To illustrate the method, let’s begin to work out the value of the square root of 2.</p>
+			<p>The initial step sets a = 5 × 2 = 10 and b = 5. So we start with the pair (a, b) = (10, 5).</p>
+			</p>			
+			<p>
+			Now we perform the repeated steps. As 10 > 5, we must apply R1. We
+			therefore replace a with a − b, so that now a = 10 − 5 = 5, and add 10 to b,
+			so that b becomes 15. The new pair is therefore (5, 15).
+			</p>
+			<p>
+			We apply the rule again. This time, however, a = 5 < 15 = b, and so we
+			use R2. This rule says: Add two zeroes to the end of a, to make a = 500,
+			and put a zero before the final digit of b, so that now b = 105. The pair
+			becomes (500, 105).
+			</p>
+			<p>Now 500 > 105, so we apply R1, and we replace a by a−b = 500−105 =
+			395, and add 10 to b, so that b becomes 115. Our pair is then (395, 115).
+			Repeatedly applying the rules in turn gives:
+			</p>
+			<p>
+			(10, 5) R1 −→ (5, 15) R2 −→ (500, 105) R1 −→ (395, 115) R1 −→ (280, 125)
+			R1 −→ (155, 135) R1 −→ (20, 145) R2 −→ (2000, 1405) R1 −→ (595, 1415)
+			R2 −→ (59500, 14105) R1 −→ (45395, 14115) R1 −→ (31280, 14125)
+			R1 −→ (17155, 14135) R1 −→ (3020, 14145) R2 −→ (302000, 141405)
+			R1 −→ (160595, 141415) R1 −→ (19180, 141425) R2 −→ (1918000, 1414205) −→ · · ·
+			</p>
+			<center>value of 'b' will converge to 141421356 . . . .</center>
+	
+			<p>
+			<h2>Conclusion</h2>
+			<p>Obviously, it is far too slow to do with pen and paper, but is has proved to be an important tool in finding roots to many decimal places</p>
+			</p>
+			
+			<p>
+			<h2>Python implementation of the algorithm</h2>
+			</p>
+			<div class="box">
+				<pre><code class="python">
+def japanese_square_root(num):
+	a = 5*num
+	b = 5
+	
+	while len(str(b))<=200:
+		if a >= b:
+			a = a-b
+			b += 10
+		else:
+			a *= 100
+			b  = b*10 - 45 # same as adding a '0' before unit's place
+	return b
+	
+Input: 2
+Output: 1414213562373095048801688724209698078569671875376948073<br/>17667973799073247846210703885038753432764157273501384623091229702492483<br/>605585073721264412149709993583141322266592750559275579995050115278206057147
+				</code></pre>
+			</div>
+			
+			<hr/>
+			<p>Know more about it <a href="http://www.afjarvis.staff.shef.ac.uk/maths/jarvisspec02.pdf">here.</a></p>
+		  <!-- Till here -->
+         </div>
+            </div>
+          </div>
+		  </div>
+		  </section>
+ 
+ <!-- FOOTER -->
+
+  
+	<script src="../hl/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
