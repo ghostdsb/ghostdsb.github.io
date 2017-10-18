@@ -1,9 +1,122 @@
+<!DOCTYPE html>
 <html>
-<head>
-<title></title>
-</head>
-<body>
-<h2>Home</h2>
-<a href="https://ghostdsb.github.io/mainpage.html"><p>go here</p></a>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ghost_dsb</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bulma.css">
+	
+	<script>
+function move() {
+    var elem = document.getElementById("myBar"); 
+    var width = 0;
+    var id = setInterval(frame, 10);
+    function frame() {
+        if (width >= 100) {
+            clearInterval(id);
+        } else {
+            width++; 
+            elem.style.width = width + '%';
+				if(width==99){
+	  location.replace("https://ghostdsb.github.io/mainpage.html");
+	}
+        }
+    }
+	
+}
+</script>
+
+
+<style>
+#myProgress {
+    width: 100%;
+    background-color: black;
+}
+#myBar {
+    width: 1%;
+    height: 30px;
+    background-color: white;
+}
+
+</style>
+	
+  </head>
+  
+  
+<body style="background:black" onLoad="return move()">
+ 
+ 
+<!-- NAVBAR -->
+<!-- <nav class="navbar is-black" role="navigation" aria-label="main navigation">
+	<div class="navbar-brand">
+		<a class="navbar-item" href="mainpage.html"><img src="img/mylogo.png" width="32" height="32"><strong>Ghost_dsb</strong></a>
+	
+		<button class="button navbar-burger">
+		<span></span>
+		<span></span>
+		<span></span>
+		</button>
+	</div>
+	
+	<div class="navbar-menu">
+		<div class="navbar-start">
+		<a class="navbar-item " href="blogindex.html"><strong>Blogs</strong></a>
+		<a class="navbar-item " href="games.html"><strong>Games</strong></a>
+		<a class="navbar-item" href="euler.html"><strong>Project Euler</strong></a>
+		</div>
+		
+		<div class="navbar-end">
+		<a class="navbar-item " href="http://www.github.com/ghostdsb"><span class="fa fa-github"></span>&nbsp;Github</a>
+		</div>	
+	</div>
+</nav> -->
+
+  
+  <!-- MAIN ARTICLE -->
+<div class="columns">
+<div class="colums is-12">.<br/><br/><br/><br/><br/><br/><br/></div>
+</div>
+<section class="articles">
+        <div class="column is-8 is-offset-2">
+<div class="card article">
+<div class="card-content" style="background:black">
+<div class="media">
+<div class="media-content has-text-centered">
+<p class="title article-title" style="color:white">Namaste!</p>
+<p class="subtitle is-6 article-subtitle"></p>
+</div>
+</div>
+<div class="content article-body">
+</div>
+</div>
+</div>
+	<br/>	  
+<!-- <div class="card article">
+<div class="card-content">
+<div class="media">
+<div class="media-content has-text-centered"> -->
+
+
+<div id="myProgress" >
+  <div id="myBar" ></div>
+</div>
+<p class="subtitle is-6 article-subtitle"></p>
+
+
+<!-- </div>
+</div>
+<div class="content article-body">
+</div>
+</div>
+</div> -->
+		  </div>
+		  </section>
+<div class="columns">
+<div class="colums is-12">.<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></div>
+</div>	 
+ 
+ <!-- FOOTER -->
+ 
 </body>
 </html>
