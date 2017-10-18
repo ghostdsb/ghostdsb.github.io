@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Euler| Project Euler Problem 493</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../css/bulma.css">
+	<link rel="stylesheet" href="../hl/styles/atom-one-dark.css">
+  </head>
+  
+  
+<body style="background:black">
+ 
+ 
+<!-- NAVBAR -->
+<nav class="navbar is-black" role="navigation" aria-label="main navigation">
+	<div class="navbar-brand">
+		<a class="navbar-item" href="../mainpage.html"><img src="../img/mylogo.png" width="32" height="32"><strong>Ghost_dsb</strong></a>
+	
+		<button class="button navbar-burger">
+		<span></span>
+		<span></span>
+		<span></span>
+		</button>
+	</div>
+	
+	<div class="navbar-menu">
+		<div class="navbar-start">
+		<a class="navbar-item " href="../blogindex.html"><strong>Blogs</strong></a>
+		<a class="navbar-item " href="../games.html"><strong>Games</strong></a>
+		<a class="navbar-item is-active" href="../euler.html"><strong>Project Euler</strong></a>
+
+		</div>
+		
+		<div class="navbar-end">
+		<a class="navbar-item " href="http://www.github.com/ghostdsb"><span class="fa fa-github"></span>&nbsp;Github</a>
+		</div>	
+	</div>
+</nav>
+
+  
+  <!-- MAIN ARTICLE -->
+  <div class="columns">
+<div class="colums is-12">.<br/><br/><br/><br/><br/></div>
+</div>
+<section class="articles">
+        <div class="column is-8 is-offset-2">
+<div class="card article">
+            <div class="card-content">
+              <div class="media">
+                <div class="media-content has-text-centered">
+                  <p class="title article-title">Project Euler Problem 493</p>
+                  <p class="subtitle is-6 article-subtitle">Go <a href="https://projecteuler.net/problem=493">here</a> for question</p>
+                </div>
+              </div>
+
+            <div class="content article-body">
+						<div class="box">
+				<pre><code class="python">import math
+
+def combination(a,b):
+	return math.factorial(a)/(math.factorial(b)*math.factorial(a-b))
+	
+
+ans = combination(60,20)/combination(70,20)
+
+print(7*(1-ans))</code></pre>
+			</div>
+              </div>
+            </div>
+          </div>
+		  </div>
+		  </section>
+ 
+ <!-- FOOTER -->
+
+  
+	<script src="../hl/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
