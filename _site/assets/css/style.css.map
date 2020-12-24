@@ -3,12 +3,12 @@
 	"file": "style.css",
 	"sources": [
 		"style.scss",
-		"_sass/minima/skins/dark.scss",
-		"_sass/minima/initialize.scss",
-		"_sass/minima/custom-variables.scss",
-		"_sass/minima/_base.scss",
-		"_sass/minima/_layout.scss",
-		"_sass/minima/custom-styles.scss"
+		"../../gems/bundler/gems/minima-3cdd14dff121/_sass/minima/skins/dark.scss",
+		"../../gems/bundler/gems/minima-3cdd14dff121/_sass/minima/initialize.scss",
+		"../../gems/bundler/gems/minima-3cdd14dff121/_sass/minima/custom-variables.scss",
+		"../../gems/bundler/gems/minima-3cdd14dff121/_sass/minima/_base.scss",
+		"../../gems/bundler/gems/minima-3cdd14dff121/_sass/minima/_layout.scss",
+		"../../gems/bundler/gems/minima-3cdd14dff121/_sass/minima/custom-styles.scss"
 	],
 	"sourcesContent": [
 		"@import\n  \"minima/skins/dark\",\n  \"minima/initialize\";\n",
