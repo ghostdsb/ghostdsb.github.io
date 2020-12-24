@@ -18,8 +18,11 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Dibyanshu Bhoi
+title: ghostdsb
 email: dibyanshu.bhoi@gmail.com
+author:
+  name: Dibyanshu Bhoi
+  email: "dibyanshu.bhoi@gmail.com"
 description: >- # this means to ignore newlines until "baseurl:"
   
 baseurl: "/" # the subpath of your site, e.g. /blog
@@ -31,6 +34,14 @@ github_username:  ghostdsb
 theme: minima
 plugins:
   - jekyll-feed
+minima:
+  skin: dark
+  date_format: "%b %-d, %Y"
+  social_links:
+    github: ghostdsb
+    twitter: DibyanshuBhoi
+    linkedin: dibyanshubhoi
+
 
 # Exclude from processing.
 # The following items will not be processed, by default.
