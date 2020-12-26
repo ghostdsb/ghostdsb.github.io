@@ -1,12 +1,18 @@
 ---
 layout: post
-title:  "Ex Scapper"
+title:  "Ex Scaper"
 date:   2020-12-26 13:28:13 +0530
 category: Project
 permalink: "projects/exscapper"
 ---
 
 ### Elixir module that looked for answered questions in a github [repo](https://github.com/ghostdsb/ProjectEuler) and scrapped project euler [site](https://projecteuler.net/archives) for their questions.
+
+#### This project is done to teach self about 
+
+| - |
+| Webscraping in Elixir|
+| Github APIs.|
 
 #### Fetching answers from Repository
 ---
@@ -26,20 +32,19 @@ First we hit github's content API to get all the files in the repo. For this, I 
   end
 ```
 
-This gives us a list of all the file names in the repo. Now for each file name we hit another github's API for getting file contents and some useful header details like last modified date
+This gives us a list of all the file names in the repo. Now for each file name we hit another github's API for getting file contents and some useful header details like ```last-modified``` date
 
 ```elixir
 def get_answer_data(file_name) do
-    with {:ok, %HTTPoison.Response{status_code: 200, body: body, headers: headers}} <- HTTPoison.get("https://api.github.com/repos/ghostdsb/ProjectEuler/contents/"<>file_name<>"?ref=master") do
-      {:ok, data} = body |> Jason.decode()
-      data =
+    with {:ok, %HTTPoison.Response{status_code: 200, body: body, headers: headers}} <- HTTPoison.get("https://api.github.com/repos/ghostdsb/ProjectEuler/contents/"<>file_name<>"?ref=master"),
+      {:ok, data} <- body |> Jason.decode() do
+      answer_text =
         data["content"]
         |> String.split("\n")
         |> Enum.map(fn line -> line |> Base.decode64!() end)
         |> Enum.join()
-      file_name |> IO.inspect()
-        %{
-        "body" => data,
+      %{
+        "body" => answer_text,
         "headers" => headers |> Map.new()
       }
     else
@@ -52,10 +57,10 @@ def get_answer_data(file_name) do
   end
 ```
 
-#### Scrapping questions from Project Euler site
+#### Scraping questions from Project Euler site
 ---
 
-Same HTTPoison module is used to fetch the site details. But now another elixir module Floki which is a simple HTML parser that enables search for nodes using CSS selectors. Upon inspecting the site, it is found that the question title is wrapped in a "h2" tag and the question content is inside a div with class name "problem_content".
+Same HTTPoison module is used to fetch the site details. But now another elixir module Floki which is a simple HTML parser that enables search for nodes using CSS selectors. Upon inspecting the site, it is found that the question title is wrapped in an ```h2``` tag and the question content is inside a ```div``` with class ```problem_content```.
 
 ```elixir
 def get_question(question_number) do
@@ -79,7 +84,7 @@ def get_question(question_number) do
   end
 ```
 
-The only issue is Floki returns HTML data as a tuple of {tag_name, attributes, children_nodes_list}
+The only issue is Floki returns HTML data as a tuple of ```{tag_name, attributes, children_nodes_list}```
 
 ```elixir
 iex> {:ok, %HTTPoison.Response{status_code: 200, body: body}} = HTTPoison.get("https://projecteuler.net/problem=001")
@@ -97,14 +102,17 @@ iex> [
 So a function htmlfy is used to make valid HTML page from this.
 
 ```elixir
+# for self closing tags
 def htmlfy({tag_name, _attributes, []}) do
     "<#{tag_name}/>"
 end
 
+# recursively htmlfy-ies the children
 def htmlfy({tag_name, _attributes, children_nodes}) do
     "<#{tag_name}>#{Enum.reduce(children_nodes,"",fn child, acc -> acc <> htmlfy(child) end )}</#{tag_name}>"
 end
 
+# returns a string child as it is
 def htmlfy(string_child), do: string_child
 ```
 
@@ -124,4 +132,4 @@ Wrapped the building script in a Task to run the process of fetching each proble
   end
 ```
 
-[ExScapper's repo](https://github.com/ghostdsb/ex_scapper)
+[ExScaper's repo](https://github.com/ghostdsb/ex_scapper)
