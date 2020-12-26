@@ -4,3 +4,5 @@
 
 layout: home
 ---
+
+![game of life](assets/LifeGame.gif)

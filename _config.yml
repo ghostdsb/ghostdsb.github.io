@@ -21,14 +21,20 @@
 # to change theme props
 # code $(bundle info --path minima)
 
-title: ghostdsb
+title: npm mix crate
+author: Dibyanshu
 email: dibyanshu.bhoi@gmail.com
-description: >- # this means to ignore newlines until "baseurl:"
+description: >-  # this means to ignore newlines until "baseurl:"
 baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://ghostdsb.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: DibyanshuBhoi
 github_username:  ghostdsb
 linkedin_username: dibyanshubhoi
+show_excerpts: true
+header_pages:
+  - projects/index.md
+  - euler/index.md
+  - about.markdown
 
 # Build settings
 theme: minima
