@@ -8,7 +8,7 @@ permalink: "projects/exscapper"
 
 ### Elixir module that looked for answered questions in a github [repo](https://github.com/ghostdsb/ProjectEuler) and scrapped project euler [site](https://projecteuler.net/archives) for their questions.
 
-#### 1. Fetching answers from Repository
+#### Fetching answers from Repository
 ---
 
 First we hit github's content API to get all the files in the repo. For this, I used Elixir HTTPoison module.
