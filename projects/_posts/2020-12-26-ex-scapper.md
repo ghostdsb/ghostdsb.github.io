@@ -26,7 +26,7 @@ First we hit github's content API to get all the files in the repo. For this, I 
   end
 ```
 
-This gives us a list of all the file names in the repo. Now for each file name we hit another github's API for getting file contents and some usefull header details like last modified date
+This gives us a list of all the file names in the repo. Now for each file name we hit another github's API for getting file contents and some useful header details like last modified date
 
 ```elixir
 def get_answer_data(file_name) do
