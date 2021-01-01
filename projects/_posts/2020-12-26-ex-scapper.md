@@ -4,6 +4,7 @@ title:  "Ex Scaper"
 date:   2020-12-26 13:28:13 +0530
 category: Project
 permalink: "projects/exscapper"
+tags: ["Elixir", "Web Scraping"]
 ---
 
 ### Elixir module that looks for answered problems in my Project Euler [repo](https://github.com/ghostdsb/ProjectEuler) and scraped Project Euler [site](https://projecteuler.net/archives) for their questions.
@@ -105,7 +106,7 @@ def get_answer_data(file_name) do
   end
 ```
 ```elixir
-iex(8)> ExScapper.get_answer_data("pe001-multiple-of-3-and-5.py", :timed)
+iex(8)> ExScapper.get_answer_data("pe001-multiple-of-3-and-5.py")
 %{
   "body" => "#pe001\r\narr = [x for x in range(1,1000) if x%3==0 or x%5==0]\r\nprint(sum(arr))\r\n",
   "headers" => %{

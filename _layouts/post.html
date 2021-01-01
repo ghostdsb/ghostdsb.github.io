@@ -13,7 +13,15 @@ layout: default
       {%- if page.author -%}
         • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author }}</span></span>
       {%- endif -%}</p>
+      {% if page.tags.size > 0 %}
+       {%- for tag in page.tags -%}
+       <span class="tags">
+           {{ tag }}
+       </span>
+       {%- endfor -%}
+      {% endif %}
   </header>
+
 
   <div class="post-content e-content" itemprop="articleBody">
     {{ content }}
