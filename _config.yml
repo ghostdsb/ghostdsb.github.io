@@ -30,7 +30,7 @@ url: "https://ghostdsb.github.io" # the base hostname & protocol for your site, 
 twitter_username: DibyanshuBhoi
 github_username:  ghostdsb
 linkedin_username: dibyanshubhoi
-show_excerpts: true
+# show_excerpts: true
 header_pages:
   - projects/index.md
   - euler/index.md
