@@ -7,7 +7,7 @@ permalink: "projects/exscapper"
 tags: ["Elixir", "Web Scraping"]
 ---
 
-### Elixir module that looks for answered problems in my Project Euler [repo](https://github.com/ghostdsb/ProjectEuler) and scraped Project Euler [site](https://projecteuler.net/archives) for their questions.
+### Elixir module that looks for answered problems in my Project Euler [repo](https://github.com/ghostdsb/ProjectEuler) and scrapes Project Euler [site](https://projecteuler.net/archives) for their questions and put them in this site's Project Euler [section](../euler/).
 
 #### This project is done to teach self about 
 
@@ -192,5 +192,54 @@ Wrapped the building script in a Task to run the process of fetching each proble
     Task.start(fn -> build_solution(file_name) end)
   end
 ```
+
+### Stitching all together
+
+All the post data are sent to templater function as a map, that formats the data into markdown page and writes them in site's Project Euler section. 
+
+```elixir
+def build_solution(file_name) do
+    "pe" <> question_number = file_name |> String.split("-") |> hd
+    question = get_question(question_number)
+    answer_data = get_answer_data(file_name)
+    [{year, month, date}, {hour, min, sec}] = answer_data["headers"]["last-modified"]
+    |> Timex.parse!("{RFC1123}")
+    |> Timex.to_datetime
+    |> Timex.add(Timex.Duration.from_minutes(330))
+    |> Timex.to_erl
+
+    post = Templater.make_post(%{
+      "question_number" => question_number,
+      "question" => question,
+      "answer" => answer_data["body"],
+      "last-modified" => "#{year}-#{month}-#{date} #{hour}:#{min}:#{sec} +0530"
+    })
+    File.write("#{path}/_posts/#{year}-#{month}-#{date}-project-euler-#{question_number}.md", post, [:utf8])
+  end
+```
+Templater function
+
+```elixir
+  def make_post(data) do
+'''
+---
+layout: post-euler
+title:  "Project Euler Solution #{data["question_number"]}"
+date:   #{data["last-modified"]}
+category: Euler
+---
+
+#{data["question"]["title"]}
+#{data["question"]["content"]}
+
+### Solution
+
+{% highlight python %}
+#{data["answer"]}
+{% endhighlight %}
+'''
+  end
+```
+[Project Euler Section](../euler)
 
 [ExScaper's repo](https://github.com/ghostdsb/ex_scapper)
