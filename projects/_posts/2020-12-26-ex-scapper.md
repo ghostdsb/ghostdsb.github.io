@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Ex Scaper"
+title:  "ExScaper"
 date:   2020-12-26 13:28:13 +0530
 category: Project
 permalink: "projects/exscapper"
