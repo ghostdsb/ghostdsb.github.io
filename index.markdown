@@ -5,8 +5,6 @@
 layout: home
 ---
 
-# HOME
-
 | Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Description | Project Links&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |
 | --- | --- | --- |
 | GenTree | Elixir module implementing tree data structure. 📙 | [Hexdocs](https://hexdocs.pm/gen_tree/GenTree.html) <br/> [Github](https://github.com/ghostdsb/gen_tree)|
