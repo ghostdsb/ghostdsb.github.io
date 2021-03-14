@@ -8,7 +8,8 @@ layout: home
 | Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Description | Project Links&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |
 | --- | --- | --- |
 | GenTree | Elixir module implementing tree data structure. 📙 | [Hexdocs](https://hexdocs.pm/gen_tree/GenTree.html) <br/> [Github](https://github.com/ghostdsb/gen_tree)|
-| BET TAC TOE | A multiplayer game made with React + Elixir where you bet for your move with fake money. 🎮 | [Play here](https://ghostdsb.github.io/bettactoe) <br/> [Github](https://github.com/ghostdsb/bettactoe) |
+| [BET TAC TOE](https://ghostdsb.github.io/bettactoe) | A multiplayer game made with React + Elixir where you bet for your move with fake money. 🎮 | [Play here](https://ghostdsb.github.io/bettactoe) <br/> [Github](https://github.com/ghostdsb/bettactoe) |
+| Ray Tracer | A ray tracer implementation in Rust. | [Github](https://github.com/ghostdsb/raytracer)|
 | Wolf Rabbit Carrot | Simulation of a wolf-rabbit-carrot world in elixir. | [Github](https://github.com/ghostdsb/wolf-rabbit-carrot-simulator) |
 | Goblet | A matchmaking service written in Elixir and used in BET TAC TOE. | [Github](https://github.com/ghostdsb/goblet) |
 | Raphael | A spritesheet packer in RUST. | [Github](https://github.com/ghostdsb/raphael) |
