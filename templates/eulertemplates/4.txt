@@ -1,7 +1,0 @@
-">here</a> for question</p>
-                </div>
-              </div>
-
-            <div class="content article-body">
-						<div class="box">
-				<pre><code class="python">
